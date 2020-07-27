@@ -11,6 +11,8 @@ public class ExtractSerial {
         ObjectInputStream ois = new ObjectInputStream(fis);
         TestSerial ts = (TestSerial) ois.readObject();
         System.out.println(ts);
+        ois.close();
+        fis.close();
 
         File file = new File("temp.out");
         FileInputStream fis1 = new FileInputStream(file);
@@ -21,5 +23,6 @@ public class ExtractSerial {
             sb.append(String.format("%02X ", b));
         }
         System.out.println(sb.toString());
+        fis1.close();
     }
 }
